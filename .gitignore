@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build
+.output/
+.wxt/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Extension artifacts
+*.zip
+*.xpi
+*.crx
