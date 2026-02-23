@@ -1,6 +1,6 @@
 # X Without Verified Users
 
-Chrome extension that hides verified users on `x.com`.
+Browser extension that hides verified users on `x.com`.
 
 ## Behavior
 
@@ -18,23 +18,31 @@ pnpm dev
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start dev mode (Chrome) |
-| `pnpm dev:firefox` | Start dev mode (Firefox) |
-| `pnpm build` | Build for Chrome |
-| `pnpm build:firefox` | Build for Firefox |
-| `pnpm zip` | Create distribution zip |
-| `pnpm typecheck` | Run TypeScript check |
-| `pnpm lint` | Run Oxlint |
+| Command              | Description              |
+| -------------------- | ------------------------ |
+| `pnpm dev`           | Start dev mode (Chrome)  |
+| `pnpm dev:firefox`   | Start dev mode (Firefox) |
+| `pnpm build`         | Build for Chrome         |
+| `pnpm build:firefox` | Build for Firefox        |
+| `pnpm zip`           | Create distribution zip  |
+| `pnpm typecheck`     | Run TypeScript check     |
+| `pnpm lint`          | Run Oxlint               |
+| `pnpm format`        | Run Oxfmt                |
 
-## Adding Entrypoints
+## Structure
 
-WXT automatically detects entrypoints in the `entrypoints/` directory:
+```
+entrypoints/
+└── content.ts                  # Router layer: content script
+lib/
+└── domain/
+    └── verified-user-filter.ts # Domain layer: detection and hide logic
+assets/
+└── icon.svg
+```
 
-- `popup/` - Popup UI
-- `options/` - Options page
-- `background.ts` - Service worker
-- `content.ts` - Content script
+## Manual Validation
 
-See [WXT documentation](https://wxt.dev/) for more details.
+1. Open `https://x.com/home` with the extension enabled.
+2. Check that verified users are hidden.
+3. Scroll to load more posts and verify newly added verified users are hidden too.

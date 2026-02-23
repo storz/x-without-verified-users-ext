@@ -1,14 +1,8 @@
-import { defineConfig } from 'wxt'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "wxt";
 
 export default defineConfig({
-  modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: 'My Extension',
-    description: 'A browser extension built with WXT',
-    permissions: ['storage'],
+    name: "X Without Verified Users",
+    description: "Hide verified users on x.com automatically",
   },
-  vite: () => ({
-    plugins: [tailwindcss()],
-  }),
-})
+});
